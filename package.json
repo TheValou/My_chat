@@ -2,8 +2,10 @@
   "name": "chat_node",
   "version": "0.1.0",
   "description": "An exercie to use socket.io ",
+  "main": "server.js",
   "author": "Valentin W",
   "dependencies": {
+    "ejs": "^2.4.1",
     "express": "4.13.4",
     "socket.io": "^1.4.5"
   }
