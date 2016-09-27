@@ -32,7 +32,7 @@
 
   if (pseudo == null)
   {
-    var pseudo = prompt('Quel est votre pseudo ?');
+    var pseudo = "<%= user.google_name %>";
     socket.emit('petit_nouveau', pseudo);
   }
 
