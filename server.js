@@ -3,6 +3,7 @@ var app = express();
 var passport = require('passport');
 var io = require('socket.io').listen(app.listen(3000));
 var ExpressSession = require('express-session')
+var MemoryStore = require('session-memory-store')(ExpressSession);
 
 app.set("view engine", "ejs");
 app.set("views", __dirname + "/views");
@@ -10,6 +11,8 @@ app.set("view options", { layout: false } );
 
 app.use(ExpressSession({
   secret: 'mabite'
+  , 
+  store: new MemoryStore({ reapInterval: 60000 * 10 })
   // ,
   // resave: true,
   // saveUninitialized: true

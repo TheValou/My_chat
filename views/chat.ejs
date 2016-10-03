@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <link rel="stylesheet" type="text/css" href="css/style.css"/>
+  <link rel="stylesheet" type="text/css" href="css/bootstrap.css"/>
+
+  <title>Socket.io</title>
+
+</head>
+
+<body>
+
+  <div class="page-header text-center">
+    <h1><span class="fa fa-anchor"></span> Chat Page</h1>
+    <a href="/profile" class="btn btn-default btn-sm">Profile</a>
+    <a href="/logout" class="btn btn-default btn-sm">Logout</a>
+  </div>
+
+  <div class="panel panel-default col-xs-6">
+   <!--  <div class="panel-heading pseudo"></div>
+   <div class="panel-body message"></div> -->
+ </div>
+ <div class="col-xs-6">
+  <div class="well">
+    <h3 class="text-danger"><span class="fa fa-google-plus"></span> Google</h3>
+
+<img src="<% user.picture %>" alt="Profile" class="img-circle">
+
+    <p>
+      <strong>id</strong>: <%= user.google_id %><br>
+      <strong>token</strong>: <%= user.google_token %><br>
+      <strong>email</strong>: <%= user.google_email %><br>
+      <strong>name</strong>: <%= user.google_name %>
+    </p>
+  </div>
+</div>
+
+  <div>
+  <form action="">
+    <input id="mess" class="form-group has-warning has-feedback" autocomplete="off" /><button value="Envoyer le message" id="poke" >Send</button>
+  </form>
+  </div>
+</body>
+
+<script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
+<script src="/socket.io/socket.io.js"></script>
+<script>
+  var socket = io();
+
+  // window.onbeforeunload = function() {
+  //   return "Dude, are you sure you want to leave? Think of the kittens!";
+  //   }
+
+  if (pseudo == null)
+  {
+    var pseudo = "<%= user.google_name %>";
+    socket.emit('petit_nouveau', pseudo);
+  }
+
+  // var objDiv = document.getElementById("test");
+  // objDiv.scrollTop = objDiv.scrollHeight;
+
+  jQuery('form').submit(function () {
+
+    var t = jQuery('#mess');
+
+    if (!t.val()) {
+      alert("votre emssage est vide");
+    } else {
+      socket.emit('chat message', $('#mess').val());
+      jQuery('#mess').val('');
+      return false;
+    }
+  });
+  socket.on('chat message', function(msg, pseudo, date, time){
+      //jQuery('#messages').append(jQuery('<li>').text(msg+'<strong>test</strong>'));
+      $('.panel-default').append('<div class="panel-heading pseudo">'+pseudo+'  -   '+date+'</div> <div class="panel-body message">'+msg+'</div>');
+      //$('.message').append(msg);
+    });
+  </script>
+  </html>				  
