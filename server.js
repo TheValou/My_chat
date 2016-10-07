@@ -10,7 +10,7 @@ app.set("views", __dirname + "/views");
 app.set("view options", { layout: false } );
 
 app.use(ExpressSession({
-  secret: 'mabite'
+  secret: 'ninja'
   , 
   store: new MemoryStore({ reapInterval: 60000 * 10 })
   // ,
