@@ -42,7 +42,6 @@ io.on('connection', function(socket){
     var time = date.getHours() + ":" + date.getMinutes()+ ":" + date.getSeconds();
     date = date.toDateString() +' à '+time;
     var pseudo = socket.pseudo;
-    //socket.broadcast.emit('chat message', message); //tout le monde sauf sender
     io.emit('chat message', message, pseudo, date, time);
 
   })
