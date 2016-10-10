@@ -10,8 +10,7 @@ app.set("views", __dirname + "/views");
 app.set("view options", { layout: false } );
 
 app.use(ExpressSession({
-  secret: 'ninja'
-  , 
+  secret: 'ninja', 
   store: new MemoryStore({ reapInterval: 60000 * 10 })
   // ,
   // resave: true,
