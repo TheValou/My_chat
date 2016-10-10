@@ -1,15 +1,9 @@
- //config/passport.js
-
-// load all the things we need
 var LocalStrategy    = require('passport-local').Strategy;
 var FacebookStrategy = require('passport-facebook').Strategy;
 var TwitterStrategy  = require('passport-twitter').Strategy;
 var GoogleStrategy = require('passport-google-oauth').OAuth2Strategy;
 
-// load up the user model
 var User       = require('../app/models/user');
-
-// load the auth variables
 var configAuth = require('./auth');
 
 module.exports = function(passport) {
@@ -26,14 +20,6 @@ module.exports = function(passport) {
         });
     });
     
-    // code for login (use('local-login', new LocalStategy))
-    // code for signup (use('local-signup', new LocalStategy))
-    // code for facebook (use('facebook', new FacebookStrategy))
-    // code for twitter (use('twitter', new TwitterStrategy))
-
-    // =========================================================================
-    // GOOGLE ==================================================================
-    // =========================================================================
     passport.use(new GoogleStrategy({
 
         clientID        : configAuth.googleAuth.clientID,
@@ -66,7 +52,6 @@ module.exports = function(passport) {
             }
         }).catch(function (e) { /** Erreur dans la recherche de l'user **/
         console.log("ERROR : Lors de la recherche");
-                    //res.status(401).json({message: "ERROR - Cette adresse email est déjà utilisé. Veuillez vous connecter ou utiliser une autre adresse email.", statut:"mailUsed"});
                     return done(e, null);
                 });
     });

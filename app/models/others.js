@@ -5,7 +5,6 @@ var Sequelize = require('sequelize');
 var User = sequelize.define('authentification', {
   id_auth: {
     type: Sequelize.INTEGER,
-   // field: 'first_name' // Will result in an attribute that is firstName when user facing but first_name in the database
  },
  Auth_name: {
   type: Sequelize.STRING
@@ -18,7 +17,6 @@ var User = sequelize.define('authentification', {
 User.sync();
 
 User.sync({force: true}).then(function () {
-  // Table created
   return User.create({ 
     google_id: profile.id, 
     google_token: token, 
@@ -27,5 +25,4 @@ User.sync({force: true}).then(function () {
   })
 });
 
-// exports.user = User;
 module.exports = User;
