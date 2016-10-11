@@ -1,7 +1,7 @@
 var express = require('express');
 var app = express();
 var passport = require('passport');
-var io = require('socket.io').listen(app.listen(3000));
+var io = require('socket.io').listen(app.listen(process.env.PORT || 3000));
 var ExpressSession = require('express-session')
 var MemoryStore = require('session-memory-store')(ExpressSession);
 
