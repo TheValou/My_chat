@@ -13,10 +13,8 @@ module.exports = function(app, passport) {
         });
     });
 
-    app.get('/chat',ensureAuthenticated, function(req, res) {
-        res.render('chat.ejs', {
-            user : req.user // get the user out of session and pass to template
-        });
+    app.get('/chat', function(req, res) {
+               res.status(404).json({"message" : "chaaaat"});
     });
 
     app.get('/logout', function(req, res) {
