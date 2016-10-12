@@ -15,7 +15,7 @@ module.exports = {
     'googleAuth' : {
         'clientID'      : '225837931807-mvrha59m4kjbjr082ba7mbp82pir8l5n.apps.googleusercontent.com',
         'clientSecret'  : 'JT2IWvrdBd9LTKb1-Cx9SZWY',
-        'callbackURL'   : 'https://pacific-refuge-10469.herokuapp.com/auth/google/callback'
+        'callbackURL'   : 'http://murmuring-falls-35941.herokuapp.com/auth/google/callback'
     }
 
 };
