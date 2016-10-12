@@ -7,13 +7,13 @@ module.exports = function(app, passport) {
 
 
     // route for showing the profile page
-    app.get('/profile', function(req, res) {
+    app.get('/profile',ensureAuthenticated ,function(req, res) {
         res.render('profile.ejs', {
             user : req.user // get the user out of session and pass to template
         });
     });
 
-    app.get('/chat', function(req, res) {
+    app.get('/chat',ensureAuthenticated, function(req, res) {
         res.render('chat.ejs', {
             user : req.user // get the user out of session and pass to template
         });
