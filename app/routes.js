@@ -7,7 +7,7 @@ module.exports = function(app, passport) {
 
 
     // route for showing the profile page
-    app.get('/profile', ensureAuthenticated, function(req, res) {
+    app.get('/profile', function(req, res) {
         res.render('profile.ejs', {
             user : req.user // get the user out of session and pass to template
         });
