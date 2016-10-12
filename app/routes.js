@@ -32,10 +32,14 @@ module.exports = function(app, passport) {
             failureRedirect : '/'
         }));
 
+    app.get('*', function(req, res) {
+        res.status(404).json({"message" : "erreur"});
+    }
+
 };
 
 function ensureAuthenticated(req, res, next) {
   if (req.session.passport && req.session.passport.user) {
     return next(); }
-  res.redirect('/')
+    res.redirect('/')
 }
