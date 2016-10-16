@@ -6,7 +6,7 @@
   <link rel="stylesheet" type="text/css" href="css/style.css"/>
   <link rel="stylesheet" type="text/css" href="css/bootstrap.css"/>
 
-  <title>Socket.io</title>
+  <title>Chat en ligne !</title>
 
 </head>
 
@@ -29,6 +29,8 @@
 <img src="<% user.picture %>" alt="Profile" class="img-circle">
 
     <p>
+          <strong>test</strong>: <%= users %><br>
+
       <strong>id</strong>: <%= user.google_id %><br>
       <strong>token</strong>: <%= user.google_token %><br>
       <strong>email</strong>: <%= user.google_email %><br>
@@ -80,4 +82,4 @@
       //$('.message').append(msg);
     });
   </script>
-  </html>				  
+  </html>         

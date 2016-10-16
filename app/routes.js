@@ -12,9 +12,11 @@ module.exports = function(app, passport) {
         res.render('test.ejs');
     });
 
-    app.get('/profile',function(req, res) {
-        console.log("ici");
-        res.render('profile.ejs');
+    app.get('/profile',ensureAuthenticated, function(req, res) {
+        res.render('profile.ejs', {
+            user : req.user, // get the user out of session and pass to template
+            users : req.users
+        });
     });
 
     app.get('/chat',ensureAuthenticated, function(req, res) {
@@ -44,6 +46,7 @@ module.exports = function(app, passport) {
 
 function ensureAuthenticated(req, res, next) {
   if (req.session.passport && req.session.passport.user) {
-    return next(); }
-    res.redirect('/')
+    return next(); 
+}
+res.redirect('/')
 }
