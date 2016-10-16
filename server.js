@@ -12,9 +12,9 @@ app.set("view options", { layout: false } );
 app.use(ExpressSession({
   secret: 'ninja', 
   store: new MemoryStore({ reapInterval: 60000 * 10 })
-  // ,
-  // resave: true,
-  // saveUninitialized: true
+   ,
+   resave: true,
+   saveUninitialized: true
 
 }));
 app.use(passport.initialize());

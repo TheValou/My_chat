@@ -7,6 +7,11 @@ module.exports = function(app, passport) {
 
 
     // route for showing the profile page
+    app.get('/test',function(req, res) {
+        console.log("ici");
+        res.render('test.ejs');
+    });
+
     app.get('/profile',function(req, res) {
         console.log("ici");
         res.render('profile.ejs');
