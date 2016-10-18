@@ -13,9 +13,9 @@ module.exports = {
     },
 
     'googleAuth' : {
-        'clientID'      : '225837931807-mvrha59m4kjbjr082ba7mbp82pir8l5n.apps.googleusercontent.com',
-        'clientSecret'  : 'JT2IWvrdBd9LTKb1-Cx9SZWY',
-        'callbackURL'   : 'https://mychatnode.herokuapp.com/auth/google/callback'
+        'clientID'      : '225837931807-a8fgdpvsg4i9t0cvshqmpe2ghj3g2apf.apps.googleusercontent.com',
+        'clientSecret'  : 'FvAm6Q87MM54bCaKDQzfLL9I',
+        'callbackURL'   : 'http://localhost:3000/auth/google/callback'
     }
 
 };

@@ -13,9 +13,9 @@ module.exports = function(app, passport) {
     });
 
     app.get('/profile',ensureAuthenticated, function(req, res) {
+        console.log(req);
         res.render('profile.ejs', {
-            user : req.user, // get the user out of session and pass to template
-            users : req.users
+            user : req.user
         });
     });
 
@@ -46,6 +46,7 @@ module.exports = function(app, passport) {
 
 function ensureAuthenticated(req, res, next) {
   if (req.session.passport && req.session.passport.user) {
+    console.log(req);
     return next(); 
 }
 res.redirect('/')
